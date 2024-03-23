@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "django-license-wall"
+version = "0.1.0"
+description = "Disallows user to enter admin panel without license key"
+authors = ["readysloth <readysloth@protonmail.com>"]
+license = "GPLv3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.3"
+
+
+[tool.poetry.group.dev.dependencies]
+behave = "^1.2.6"
+behave-django = "^1.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
