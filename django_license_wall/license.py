@@ -59,10 +59,13 @@ class LicenseKey:
 
     @staticmethod
     def verify(license: str):
-        incoming_license = LicenseKey.from_str(license)
-        generated_license = LicenseKey.generate(incoming_license.seed,
-                                                use_initial=True)
-        return incoming_license == generated_license
+        try:
+            incoming_license = LicenseKey.from_str(license)
+            generated_license = LicenseKey.generate(incoming_license.seed,
+                                                    use_initial=True)
+            return incoming_license == generated_license
+        except Exception:
+            return False
 
     def __str__(self):
         return str(UUID(bytes=self.__license_bytes))
