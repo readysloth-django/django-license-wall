@@ -2,6 +2,7 @@ from django import forms
 
 from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 
 class LicenseForm(forms.Form):
@@ -19,7 +20,7 @@ class LicenseForm(forms.Form):
         )
         if not self.user:
             raise ValidationError(
-                'You should supply valid license to use application',
+                _('You should supply valid license to use application'),
                 code='invalid_login',
                 params={'license': 'invalid_license'}
             )
