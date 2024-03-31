@@ -18,10 +18,13 @@ class LicenseBackend(ModelBackend):
             pass
 
         new_license_valid = LicenseKey.verify(license)
-        existing_license_valid = LicenseKey.verify(existing_license.key)
+        existing_license_valid = False
+        if existing_license:
+            existing_license_valid = LicenseKey.verify(existing_license.key)
 
         if new_license_valid:
-            existing_license.delete()
+            if existing_license:
+                existing_license.delete()
             LicenseKeyModel.objects.create(key=license)
         if new_license_valid or existing_license_valid:
             user, _ = USER_MODEL.objects.get_or_create(
