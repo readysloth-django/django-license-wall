@@ -1,6 +1,8 @@
 from uuid import UUID
 from random import Random
 from datetime import datetime
+from typing import Union
+
 
 # License key format (uuid)
 # seed: 32 bit
@@ -58,7 +60,9 @@ class LicenseKey:
         return LicenseKey(seed, position, key)
 
     @staticmethod
-    def verify(license: str):
+    def verify(license: Union[str, 'LicenseKey']):
+        if type(license) == LicenseKey:
+            license = str(license)
         try:
             incoming_license = LicenseKey.from_str(license)
             generated_license = LicenseKey.generate(incoming_license.seed,
