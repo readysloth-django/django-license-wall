@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'solo',
-    'django_license_wall'
+    'django_license_wall',
+    'behave_django'
 ]
 
 MIDDLEWARE = [
