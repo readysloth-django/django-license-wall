@@ -3,7 +3,7 @@ name = "django-license-wall"
 version = "0.1.0"
 description = "Disallows user to enter admin panel without license key"
 authors = ["readysloth <readysloth@protonmail.com>"]
-license = "GPLv3"
+license = "LGPLv3"
 readme = "README.md"
 
 [tool.poetry.dependencies]
